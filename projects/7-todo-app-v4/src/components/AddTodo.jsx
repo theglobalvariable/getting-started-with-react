@@ -1,16 +1,21 @@
 import PropTypes from "prop-types";
 import styles from "./TodoList.module.css";
 import { BiMessageSquareAdd } from "react-icons/bi";
+import { useRef } from "react";
 
 function AddTodo({ onAddClickHandler }) {
+  let titleEle = useRef();
+  let dateEle = useRef();
+
   const onFormSubmitHandler = (event) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    const title = formData.get("title");
-    const date = formData.get("date");
+
+    const title = titleEle.current.value;
+    const date = dateEle.current.value;
     if (title && date) {
       onAddClickHandler(title, date);
-      event.target.reset();
+      titleEle.current.value = "";
+      dateEle.current.value = "";
     }
   };
 
@@ -21,10 +26,15 @@ function AddTodo({ onAddClickHandler }) {
         onSubmit={onFormSubmitHandler}
       >
         <div className="col-6">
-          <input type="text" name="title" placeholder="Enter Todo Here" />
+          <input
+            type="text"
+            name="title"
+            ref={titleEle}
+            placeholder="Enter Todo Here"
+          />
         </div>
         <div className="col-4">
-          <input name="date" type="date" />
+          <input name="date" type="date" ref={dateEle} />
         </div>
         <div className="col-2">
           <button className={`btn btn-success ${styles["my-button"]}`}>
