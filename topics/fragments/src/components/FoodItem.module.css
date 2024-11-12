@@ -1,0 +1,13 @@
+.my-item {
+  /* background-color: cadetblue; */
+  text-align: center;
+}
+
+.my-span {
+  font-weight: 500;
+  color: hotpink;
+}
+
+.button {
+  float: right;
+}

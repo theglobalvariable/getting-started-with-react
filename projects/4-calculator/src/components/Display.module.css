@@ -1,0 +1,8 @@
+.display {
+  margin: 10px;
+  width: 175px;
+  align-self: center;
+  font-size: 25px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
