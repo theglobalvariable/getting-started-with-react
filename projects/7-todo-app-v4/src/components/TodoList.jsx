@@ -7,19 +7,26 @@ const TodoList = () => {
   let [todos, setTodos] = useState([]);
 
   const onAddClickHandler = (title, date) => {
-    const newTodo = {
-      id: todos.length + 1,
-      title: title,
-      date: date,
+    const getNewId = (items) => {
+      if (!items || !items.length) {
+        return 1;
+      }
+      return items[items.length - 1].id + 1;
     };
 
-    const newTodos = [...todos, newTodo];
-    setTodos(newTodos);
+    setTodos((currentTodos) => {
+      const newTodo = {
+        id: getNewId(currentTodos),
+        title: title,
+        date: date,
+      };
+
+      return [...currentTodos, newTodo];
+    });
   };
 
   const onDeleteClickHandler = (id) => {
-    const newTodos = todos.filter((t) => t.id !== id);
-    setTodos(newTodos);
+    setTodos((currentTodos) => currentTodos.filter((t) => t.id !== id));
   };
 
   return (
