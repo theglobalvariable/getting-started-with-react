@@ -29,9 +29,11 @@ function AddTodo({ onAddClickHandler }) {
             type="button"
             className={`btn btn-success ${styles["my-button"]}`}
             onClick={() => {
-              onAddClickHandler(title, date);
-              setTitle("");
-              setDate("");
+              if (title && date) {
+                onAddClickHandler(title, date);
+                setTitle("");
+                setDate("");
+              }
             }}
           >
             Add
