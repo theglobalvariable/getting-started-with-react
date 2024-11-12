@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { useState } from "react";
 import styles from "./TodoList.module.css";
+import { BiMessageSquareAdd } from "react-icons/bi";
 
 function AddTodo({ onAddClickHandler }) {
   let [title, setTitle] = useState("");
@@ -36,7 +37,7 @@ function AddTodo({ onAddClickHandler }) {
               }
             }}
           >
-            Add
+            <BiMessageSquareAdd />
           </button>
         </div>
       </div>

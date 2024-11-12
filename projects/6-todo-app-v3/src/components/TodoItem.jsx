@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import styles from "./TodoList.module.css";
+import { AiFillDelete } from "react-icons/ai";
 
 const TodoItem = ({ id, title, date, onDeleteClickHandler }) => {
   return (
@@ -13,7 +14,7 @@ const TodoItem = ({ id, title, date, onDeleteClickHandler }) => {
             className={`btn btn-danger ${styles["my-button"]}`}
             onClick={() => onDeleteClickHandler(id)}
           >
-            Remove
+            <AiFillDelete />
           </button>
         </div>
       </div>
